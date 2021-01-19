@@ -1,6 +1,7 @@
 from livereload import Server, shell
 import json
-
+from more_itertools import chunked
+import math
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
@@ -17,7 +18,11 @@ def rebuild():
 
     books = json.loads(books_json)
 
-    rendered_page = template.render(books=books)
+
+    
+    col1, col2 = list(chunked(books, math.ceil(len(books)/2) ))
+
+    rendered_page = template.render(col1=col1, col2=col2)
 
     with open('index.html', 'w', encoding="utf8") as file:
         file.write(rendered_page)
