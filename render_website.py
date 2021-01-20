@@ -16,16 +16,18 @@ def rebuild():
     with open("books_db.json", "r") as my_file:
         books_json = my_file.read()
 
-    books = json.loads(books_json)
+    all_books = json.loads(books_json)
 
-
+    for i, book_chunk in enumerate(chunked(all_books, 10)):
     
-    col1, col2 = list(chunked(books, math.ceil(len(books)/2) ))
+        col1, col2 = list(
+            chunked(book_chunk, math.ceil(len(book_chunk)/2))
+            )
 
-    rendered_page = template.render(col1=col1, col2=col2)
+        rendered_page = template.render(col1=col1, col2=col2)
 
-    with open('index.html', 'w', encoding="utf8") as file:
-        file.write(rendered_page)
+        with open(f'pages/index{i}.html', 'w', encoding="utf8") as file:
+            file.write(rendered_page)
 
     print("Site rebuilded")
 
