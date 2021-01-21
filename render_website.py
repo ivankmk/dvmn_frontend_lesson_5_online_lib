@@ -33,7 +33,7 @@ def rebuild():
             pages=pages
             )
 
-        with open(f'pages/index{page_num}.html', 'w', encoding="utf8") as file:
+        with open(f'docs/index{page_num}.html', 'w', encoding="utf8") as file:
             file.write(rendered_page)
 
     print("Site rebuilded")
