@@ -21,7 +21,6 @@ def rebuild():
     pages = len(list(all_books))
 
     for page_num, book_chunk in enumerate(all_books, 1):
-    
         col1, col2 = list(
             chunked(book_chunk, math.ceil(len(book_chunk)/2))
             )
@@ -33,7 +32,7 @@ def rebuild():
             pages=pages
             )
 
-        with open(f'docs/index{page_num}.html', 'w', encoding="utf8") as file:
+        with open(f'index{"" if page_num == 1 else page_num}.html', 'w', encoding="utf8") as file:
             file.write(rendered_page)
 
     print("Site rebuilded")
