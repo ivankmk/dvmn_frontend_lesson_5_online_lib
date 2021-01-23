@@ -2,7 +2,7 @@
 
 This website is the library with books from [Tululu.org](http://tululu.org/l55/).
 
-![Page 1](/assets/screenshot.jpg)
+![Page 1](assets/screenshot.png)
 
 The library is published here: [GitHub Pages](https://ivankmk.github.io/dvmn_frontend_lesson_5_online_lib/pages/index1.html).
 
