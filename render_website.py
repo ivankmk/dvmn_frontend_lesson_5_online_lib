@@ -2,7 +2,17 @@ from livereload import Server, shell
 import json
 from more_itertools import chunked
 import math
+import os
+import glob
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+
+
+def pages_remover(remove_after):
+    for page in glob.glob('pages/index*.html'):
+        page_number = int(page.split('index')[-1].split('.')[0])
+        if page_number > remove_after:
+            os.remove(page)
+            print(f'Page {page} was removed.')
 
 
 def rebuild():
@@ -23,9 +33,11 @@ def rebuild():
 
     pages = len(all_books)
 
+    pages_remover(pages)
+
     for page_num, book_chunk in enumerate(all_books, 1):
         books = list(chunked(book_chunk, math.ceil(len(book_chunk)/2)))
-        
+
         rendered_page = template.render(
             books=books,
             page_num=page_num,
