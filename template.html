@@ -39,7 +39,7 @@
     <div class="row">
 
       <div class="col-6">
-        {% for book in col1 %}
+        {% for book in col1 if book.book_path %}
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
               <div class="col-md-4">
@@ -63,7 +63,7 @@
 
 
       <div class="col-6">
-        {% for book in col2 %}
+        {% for book in col2 if book.book_path %}
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
               <div class="col-md-4">

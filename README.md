@@ -13,7 +13,10 @@ The library is published here: [GitHub Pages](https://ivankmk.github.io/dvmn_fro
     ```
     $ pip install -r requirements.txt
     ```
-3. Open `index1.html` or use `render_website.py`. The library will be avaliable on [127.0.0.1:5500](http://127.0.0.1:5500/pages/index1.html).
+3. ```
+    python render_website.py
+    ```
+3. The library will be avaliable on [127.0.0.1:5500](http://127.0.0.1:5500/pages/index1.html).
 
 
 ### Project Goals
