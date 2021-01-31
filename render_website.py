@@ -18,7 +18,7 @@ def rebuild():
 
     all_books = list(chunked(json.loads(books_json), 10))
 
-    pages = len(list(all_books))
+    pages = len(all_books)
 
     for page_num, book_chunk in enumerate(all_books, 1):
         col1, col2 = list(
