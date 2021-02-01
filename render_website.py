@@ -7,7 +7,7 @@ import glob
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
-def pages_remover(remove_after):
+def remove_old_pages(remove_after):
     for page in glob.glob('pages/index*.html'):
         page_number = int(page.split('index')[-1].split('.')[0])
         if page_number > remove_after:
@@ -33,7 +33,7 @@ def rebuild():
 
     pages = len(all_books)
 
-    pages_remover(pages)
+    remove_old_pages(pages)
 
     for page_num, book_chunk in enumerate(all_books, 1):
         books = list(chunked(book_chunk, math.ceil(len(book_chunk)/2)))
