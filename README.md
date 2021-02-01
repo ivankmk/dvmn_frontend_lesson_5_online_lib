@@ -9,15 +9,18 @@ The library is published here: [GitHub Pages](https://ivankmk.github.io/dvmn_fro
 ### How to install
 
 1. Clone this repo.
-2. 
+2. Run in your terminal:
     ```
     $ pip install -r requirements.txt
     ```
-3. ```
+
+3. Once all packages installed, run:
+    ```
     python render_website.py
     ```
-3. The library will be avaliable on [127.0.0.1:5500](http://127.0.0.1:5500/pages/index1.html).
+Now you can use dev version of the website which is rendering on [127.0.0.1:5500](http://127.0.0.1:5500/pages/index1.html).
 
+Or alternatively you can open `index1.html` from the `pages` folder.
 
 ### Project Goals
 
