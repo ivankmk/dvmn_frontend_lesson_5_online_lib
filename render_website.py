@@ -51,10 +51,8 @@ def rebuild():
     print("Site rebuilded")
 
 
-rebuild()
-
-server = Server()
-
-server.watch('template.html', rebuild)
-
-server.serve(root='.')
+if __name__ == '__main__':
+    rebuild()
+    server = Server()
+    server.watch('template.html', rebuild)
+    server.serve(root='.')
