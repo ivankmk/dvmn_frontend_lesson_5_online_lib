@@ -1,7 +1,8 @@
-from livereload import Server, shell
+from livereload import Server
 import json
 from more_itertools import chunked
 import math
+import re
 import os
 import glob
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -9,7 +10,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 def remove_old_pages(remove_after):
     for page in glob.glob('pages/index*.html'):
-        page_number = int(page.split('index')[-1].split('.')[0])
+        page_number = int(re.search(r'\d+', page).group(0))
         if page_number > remove_after:
             os.remove(page)
             print(f'Page {page} was removed.')
